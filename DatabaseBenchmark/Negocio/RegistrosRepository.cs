@@ -25,44 +25,52 @@ namespace DatabaseBenchmark.Negocio
 
         public List<Registro> GetAllRegitros()
         {
-            lock (contextLock)
-            {
+            //lock (contextLock)
+            //{
                 return context.GetRegistros().ToList();
-            }
+            //}
+        }
+
+        public int GetCountRegistros()
+        {
+            //lock (contextLock)
+            //{
+                return context.GetRegistros().Count();
+            //}
         }
 
         public Registro GetRegistroById(int registroId)
         {
-            lock (contextLock)
-            {
+            //lock (contextLock)
+            //{
                 return context.GetRegistros().Find(registroId);
-            }
+            //}
         }
 
         public void InsertRegistro(Registro registro)
         {
-            lock (contextLock)
-            {
+            //lock (contextLock)
+            //{
                 using (var _transaccion = this.context.GetDatabase().BeginTransaction())
                 {
                     context.GetRegistros().Add(registro);
                     context.SaveChanges();
                     _transaccion.Commit();
                 }
-            }
+            //}
         }
 
         public void UpdateRegistro(Registro registro)
         {
-            lock (contextLock)
-            {
+            //lock (contextLock)
+            //{
                 using (var _transaccion = this.context.GetDatabase().BeginTransaction())
                 {
                     context.GetEntry(registro).State = EntityState.Modified;
                     context.SaveChanges();
                     _transaccion.Commit();
                 }
-            }
+            //}
         }
 
         #region IDisposable Support

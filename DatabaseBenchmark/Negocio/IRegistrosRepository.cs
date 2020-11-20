@@ -11,9 +11,11 @@ namespace DatabaseBenchmark.Negocio
     {
         public IDbContextTransaction BeginTransaction();
         public List<Registro> GetAllRegitros();
+        public int GetCountRegistros();
         public Registro GetRegistroById(int registroId);
         public void InsertRegistro(Registro registro);
         public void UpdateRegistro(Registro registro);
+        
 
 
     }

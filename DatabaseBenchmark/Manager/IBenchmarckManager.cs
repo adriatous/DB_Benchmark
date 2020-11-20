@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseBenchmark.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,12 +8,8 @@ namespace DatabaseBenchmark.Manager
 {
     interface IBenchmarckManager
     {
-        public long CalculaMySQLInsertion(int iNumRegistries, int iNumThreads);
-        public long CalculaMySQLSelectPlusUpdate(int iNumRegistries, int iNumThreads);
-        public long CalculaMySQLSelectPlusUpdatePlusInsertion(int iNumRegistries, int iNumThreads);
-        public long CalculaPGInsertion(int iNumRegistries, int iNumThreads);
-        public long CalculaPGSelectPlusUpdate(int iNumRegistries, int iNumThreads);
-        public long CalculaPGSelectPlusUpdatePlusInsertion(int iNumRegistries, int iNumThreads);
-
+        public long CalcInsertion(int iNumRegistries, int iNumThreads, DatabaseType database);
+        public long CalcSelectPlusUpdate(int iNumRegistries, int iNumThreads, DatabaseType database);
+        public long CalcSelectPlusUpdatePlusInsertion(int iNumRegistries, int iNumThreads, DatabaseType database);
     }
 }

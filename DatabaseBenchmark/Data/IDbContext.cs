@@ -14,7 +14,6 @@ namespace DatabaseBenchmark.Data
         public DbSet<Registro> GetRegistros();
         public DatabaseFacade GetDatabase();
         public EntityEntry GetEntry(Registro r);
-
         public int SaveChanges();
         public void Dispose();
 
